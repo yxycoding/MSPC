@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report paperWidth="800" paperHeight="1100" landscape="false" margins="30,30,45,45">
+	<section kind="MasterBlock" height="150" verticalScaleFactor="1" masterSortIndex="1" blockId="1001" ShowMorePage="true">
+		<field x="0" y="0" width="740" height="30" fontid="3" field="PatientOneDayParam.titleName" />
+		<label x="0" y="30" width="740" height="30" fontid="3" text="住院患者一日清单" />
+		<label x="0" y="60" width="80" height="20" contentAlignment="MiddleLeft" fontid="1" text="清单日期：" />
+		<field x="60" y="60" width="120" height="20" fontid="1" format="yyyy年MM月dd日" dataType="System.DateTime" field="PatientOneDayParam.startTime" />
+		<label x="170" y="60" width="15" height="20" contentAlignment="MiddleLeft" fontid="1" text="-" />
+		<field x="185" y="60" width="120" height="20" contentAlignment="MiddleLeft" fontid="1" format="yyyy年MM月dd日" dataType="System.DateTime" field="PatientOneDayParam.endTime" />
+		<label x="550" y="60" width="100" height="30" foreColor="Black" backColor="Transparent" contentAlignment="MiddleCenter" fontid="1" growStyle="NoWrap" text="第  页共  页" />
+		<specialField x="565" y="60" width="30" height="30" foreColor="Black" backColor="Transparent" contentAlignment="MiddleCenter" fontid="1" growStyle="NoWrap" fieldName="pageNo" />
+		<specialField x="605" y="60" width="30" height="30" foreColor="Black" backColor="Transparent" contentAlignment="MiddleCenter" fontid="1" growStyle="NoWrap" fieldName="pageCount" />
+		<label x="0" y="90" width="60" height="20" contentAlignment="MiddleLeft" fontid="1" text="病历号：" />
+		<field x="60" y="90" width="80" height="20" contentAlignment="MiddleLeft" fontid="1" field="PatientOneDayParam.mrn" />
+		<label x="180" y="90" width="45" height="20" contentAlignment="MiddleLeft" fontid="1" text="姓名：" />
+		<field x="225" y="90" width="80" height="20" contentAlignment="MiddleLeft" fontid="1" field="PatientOneDayParam.name" />
+		<field x="355" y="90" width="80" height="20" contentAlignment="MiddleLeft" fontid="1" field="PatientOneDayParam.wardCodeBedNo" />
+		<label x="310" y="90" width="45" height="20" contentAlignment="MiddleLeft" fontid="1" text="床号：" />
+		<label x="430" y="90" width="45" height="20" contentAlignment="MiddleLeft" fontid="1" text="病区：" />
+		<field x="475" y="90" width="84" height="20" contentAlignment="MiddleLeft" fontid="1" field="PatientOneDayParam.wardName" />
+		<label x="570" y="90" width="80" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="医保类别：" />
+		<field x="630" y="90" width="100" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParam.patCateg" />
+		<label x="0" y="120" height="30" columnid="1" border="0,0,1,1" text="类别" />
+		<label x="0" y="120" height="30" columnid="2" border="0,0,1,1" growStyle="FixedRow" text="项目名称" />
+		<label x="0" y="120" height="30" columnid="3" border="0,0,1,1" growStyle="FixedRow" text="数量" />
+		<label x="0" y="120" height="30" columnid="4" border="0,0,1,1" growStyle="FixedRow" text="单位" />
+		<label x="0" y="120" height="30" columnid="5" border="0,0,1,1" growStyle="FixedRow" text="一日费用" />
+		<label x="0" y="120" height="30" columnid="6" border="0,0,1,1" growStyle="FixedRow" text="自理金额" />
+	</section>
+	<section kind="MasterDetail" height="21" masterSortIndex="2" blockRef="1001" ShowMorePage="true">
+		<field x="0" y="0" columnid="1" border="0,0,0,0" hideWhenEqualToPrevRow="true" fontid="1" growStyle="ExpandRow" field="PatientOneDayRecord.typeName" />
+		<field x="0" y="0" columnid="2" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="ExpandRow" field="PatientOneDayRecord.proName" />
+		<field x="0" y="0" columnid="3" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="ExpandRow" field="PatientOneDayRecord.proNum" />
+		<field x="0" y="0" columnid="4" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="ExpandRow" field="PatientOneDayRecord.proUnit" />
+		<field x="0" y="0" columnid="5" border="0,0,0,0" fontid="1" growStyle="ExpandRow" field="PatientOneDayRecord.proDayMoney" />
+		<field x="0" y="0" columnid="6" border="0,0,0,0" fontid="1" growStyle="ExpandRow" field="PatientOneDayRecord.proSelfMoney" />
+	</section>
+	<section kind="MasterBlock" height="21" masterSortIndex="3">
+		<label x="-2" y="1" width="740" height="20" contentAlignment="MiddleLeft" border="0,0,1,0" fontid="1" text="" />
+		<label x="0" y="0" width="110" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" text="一日合计：" />
+		<field columnid="5" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForTotal.proDayMoneyCount" />
+		<field columnid="6" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForTotal.proSelfMoneyCount" />
+	</section>
+	<section kind="MasterBlock" height="21" masterSortIndex="4">
+		<label x="0" y="0" width="150" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="总金额：" />
+		<field x="150" y="0" width="100" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForTotal.allMoney" />
+	</section>
+	<section kind="MasterBlock" height="21" masterSortIndex="5">
+		<label x="0" y="0" width="150" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="预交金总额：" />
+		<field x="150" y="0" width="100" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForTotal.proMoney" />
+	</section>
+	<section kind="MasterBlock" height="21" masterSortIndex="6">
+		<label x="0" y="0" width="500" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="日费用清单说明：异地医保自理部分以结算为准。" />
+	</section>
+	<section kind="MasterBlock" height="21" masterSortIndex="7">
+		<label x="0" y="0" width="110" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="打印时间：" />
+		<field x="111" y="0" width="200" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" format="yyyy-MM-dd HH:mm" dataType="System.DateTime" field="PatientOneDayParamForTotal.printTime" />
+	</section>
+	<section kind="MasterBlock" height="21" masterSortIndex="8">
+		<label x="0" y="0" width="500" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="5" growStyle="FixedRow" text="离休干部、二等乙级出院结账请带好介绍信" />
+	</section>
+	<section kind="MasterBlock" height="210" verticalScaleFactor="1" masterSortIndex="9">
+		<label x="0" y="0" width="740" height="60" contentAlignment="MiddleCenter" border="0,0,0,0" fontid="3" text="交款通知单" />
+		<label x="0" y="61" width="110" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="入院时间：" />
+		<field x="110" y="61" width="200" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" format="yyyy-MM-dd HH:mm" dataType="System.DateTime" field="PatientOneDayParamForPay.inAdmitTime" />
+		<label x="480" y="61" width="110" height="20" contentAlignment="MiddleRight" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="打印时间：" />
+		<field x="590" y="61" width="150" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" format="yyyy-MM-dd HH:mm" dataType="System.DateTime" field="PatientOneDayParamForPay.printTime" />
+		<label x="0" y="82" width="70" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="住院号：" />
+		<field x="70" y="82" width="100" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.mrn" />
+		<label x="170" y="82" width="60" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="姓名：" />
+		<field x="230" y="82" width="60" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.name" />
+		<label x="300" y="82" width="50" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="病区：" />
+		<field x="330" y="82" width="150" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.wardName" />
+		<label x="510" y="82" width="50" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="床号：" />
+		<field x="550" y="82" width="100" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.bedNo" />
+		<label x="0" y="103" width="100" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="住院天数：" />
+		<field x="100" y="103" width="50" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.inAdmitDays" />
+		<label x="0" y="124" width="110" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="已交预交金：" />
+		<field x="90" y="124" width="80" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.proMoney" />
+		<label x="170" y="124" width="50" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="余额：" />
+		<field x="210" y="124" width="80" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.balance" />
+		<label x="300" y="124" width="110" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="负担医药费：" />
+		<field x="360" y="124" width="80" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.fuDanMoney" />
+		<label x="0" y="145" width="60" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" text="费别：" />
+		<field x="60" y="145" width="100" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.patCateg" />
+		<label x="0" y="166" width="550" height="40" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="5" growStyle="FixedRow" text="为了保证医院的资金良好运转，确保全院病人能及时用药和治疗，请接到通知后带好就诊卡到医院住院处交纳住院医药费。" />
+		<field x="400" y="207" width="130" height="20" contentAlignment="MiddleRight" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.titleName" />
+		<field x="530" y="207" width="200" height="20" contentAlignment="MiddleLeft" border="0,0,0,0" fontid="1" growStyle="FixedRow" field="PatientOneDayParamForPay.wardName" />
+		<field x="400" y="230" width="330" height="20" border="0,0,0,0" fontid="1" growStyle="FixedRow" format="yyyy年MM月dd日" dataType="System.DateTime" field="PatientOneDayParamForPay.printTime" />
+	</section>
+	<columns>
+		<column id="1" name="column1" width="75" />
+		<column id="2" name="column2" width="300" />
+		<column id="3" name="column4" width="50" />
+		<column id="4" name="column4" width="50" />
+		<column id="5" name="column5" width="100" />
+		<column id="6" name="column6" width="100" />
+	</columns>
+	<fonts>
+		<font id="1" fontName="宋体" fontSize="9" fontStyle="Regular" />
+		<font id="2" fontName="Microsoft Sans Serif" fontSize="12" fontStyle="Bold" />
+		<font id="3" fontName="宋体" fontSize="14" fontStyle="Bold" />
+		<font id="4" fontName="宋体" fontSize="8" fontStyle="Regular" />
+		<font id="5" fontName="宋体" fontSize="9" fontStyle="Bold" />
+	</fonts>
+	<pens>
+		<pen id="1" color="Black" width="1" />
+		<pen id="2" color="Red" width="2" />
+	</pens>
+	<recordSorts>
+		<recordSort id="1" key="PatientOneDayRecord.Index" direction="Ascending" />
+	</recordSorts>
+</report>

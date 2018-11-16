@@ -1,0 +1,5 @@
+telnet 172.20.73.190
+admin
+20182018
+dis wlan ap all 
+dis wlan client
